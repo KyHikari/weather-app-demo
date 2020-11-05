@@ -1,23 +1,17 @@
-import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Head from 'next/head'
+import Container from 'react-bootstrap/Container'
+import Forecast from '../components/Forecast';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
-        <title>Create Next App</title>
+        <title>Weather App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1>
-          Hello from <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
-
-      <footer className={styles.footer}>
-        
-      </footer>
-    </div>
+      <Forecast />
+    </Container>
   )
 }
