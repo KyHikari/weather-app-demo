@@ -4,3 +4,5 @@ class ArgumentNullError extends Error {
         this.name = "ArgumentNullError";
     }
 }
+
+export default ArgumentNullError; 
