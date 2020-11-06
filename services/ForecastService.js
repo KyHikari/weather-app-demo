@@ -1,5 +1,5 @@
 import buildUrl from 'build-url';
-import fetch from 'node-fetch';
+import 'isomorphic-fetch';
 const BASE_URL = 'http://localhost:3000/';
 
 export default async function getForecast(query) {

@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import 'isomorphic-fetch';
 import buildUrl from 'build-url';
 
 const APP_ID = process.env.OPEN_WEATHER_API_KEY;
