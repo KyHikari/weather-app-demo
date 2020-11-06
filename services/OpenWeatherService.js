@@ -1,5 +1,6 @@
 import 'isomorphic-fetch';
 import buildUrl from 'build-url';
+import ArgumentNullError from '../errors/ArgumentNullError';
 
 const APP_ID = process.env.OPEN_WEATHER_API_KEY;
 const API_URL = 'https://api.openweathermap.org/';
@@ -11,7 +12,7 @@ class OpenWeatherService {
 
     async forecast5ByCityName({ cityName, countryCode, units, lang, cnt }) {
         if (!cityName) {
-            throw new ArgumenNullError('CityName is required.');
+            throw new ArgumentNullError('CityName is required.');
         }
 
         let q = countryCode ? `${cityName},${countryCode}` : cityName;
@@ -27,7 +28,7 @@ class OpenWeatherService {
 
     async forecast5ByZipCode({ zipCode, countryCode, units, lang, cnt }) {
         if (!zipCode) {
-            throw new ArgumenNullError('ZipCode is required.');
+            throw new ArgumentNullError('ZipCode is required.');
         }
         let zip = countryCode ? `${zipCode},${countryCode}` : zipCode;
         let params = {
@@ -52,7 +53,7 @@ class OpenWeatherService {
             let response = await fetch(url);
             if (response.status < 200 || response.status >= 300) {
                 let error = await response.json();
-                message += `(${error.cod}) : ${error.message}`;
+                let message = `(${error.cod}) : ${error.message}`;
                 throw new Error(message);
             }
             return response.json();
